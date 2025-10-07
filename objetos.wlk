@@ -17,10 +17,32 @@ object lionel {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
 	
+	method taquito(){
+			
+			self.validarTaquito()
+			pelota.retrocederDoslugares()	
+			
+	}
+
+	method validarTaquito(){
+		if(pelota.position() != position){
+			
+			//game.say(self, "La pelota no está !")			
+			self.error("Lionel no esta con la pelota!!")
+		}
+	}
+
+
 }
 
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)	
+	var property position = game.at(5,5)
+
+	method retrocederDoslugares() {
+		position = game.at(0.max(position.x() - 2), position.y())
+	  
+	}
+
 }
