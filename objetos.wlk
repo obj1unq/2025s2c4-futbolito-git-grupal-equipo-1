@@ -23,9 +23,9 @@ object lionel {
 	}
 
 	method validarQueNoTieneLaPelota(){
-		return (if(self.position() == pelota.position()){
+		if(self.position() == pelota.position()){
 			self.error("No se fue la pelota!")
-		})
+		}
 	}
 	
 }
