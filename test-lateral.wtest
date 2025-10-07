@@ -1,0 +1,17 @@
+import objetos.*
+import wollok.game.*
+
+describe "lateral"{
+    method initialize(){
+        game.width(15)
+	    game.height(10)
+        pelota.position(game.at(5,5))
+        lionel.position(game.at(4,4))
+    }
+    test "lateraleando"{
+        pelota.irAlLateral()
+        lionel.irASacarLateral()
+        assert.equals(game.at(5,0), pelota.position())
+        assert.equals(game.at(5,0), lionel.position())
+    }
+}
