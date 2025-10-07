@@ -26,8 +26,7 @@ object lionel {
 
 	method validarTaquito(){
 		if(pelota.position() != position){
-			
-			//game.say(self, "La pelota no está !")			
+
 			self.error("Lionel no esta con la pelota!!")
 		}
 	}

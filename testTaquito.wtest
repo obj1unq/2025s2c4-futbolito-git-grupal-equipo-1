@@ -3,27 +3,25 @@ import wollok.game.*
 
 describe "test de taquito" {
 
-    method inicialize(){
+    method inicialitie(){
     game.addVisual(lionel)
 	game.addVisual(pelota)
 	game.cellSize(40)
 	game.width(15)
 	game.height(10)
-	keyboard.enter().onPressDo({game.say(lionel, "Vamos Argentina!")})
-	keyboard.left().onPressDo({lionel.retroceder()})
-	keyboard.right().onPressDo({lionel.avanzar()})
-	keyboard.t().onPressDo({lionel.taquito()})
-
-    
+	
 
     }
-  test "lionel hace un taquito" {
+  test "lionel esta con la pelota" {
     
-    self.inicialize()
+   self.inicialitie()
     lionel.avanzar()
     lionel.avanzar()
-   // lionel.avanzar()
-    //assert.equals(lionel.Position(game.at(5,5), game.at(5,5))
+
+    assert.equals(game.at(5,5), lionel.position())
+    assert.equals(game.at(5,5), pelota.position())
+    assert.equals(lionel.position(), pelota.position())
+  
 
   }
 }
