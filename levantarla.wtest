@@ -1,0 +1,18 @@
+import objetos.*
+describe "Lionel levanta la pelota, si es que puede" {
+
+
+ test "validamos si que messi no peude levantar la pelota" {
+    
+    assert.throwsException({lionel.levantarla()})
+
+    }
+ test "validamos si la pelota esta en el mismo lugar que messi luego de que cae la pelota" {
+    lionel.avanzar()
+    lionel.avanzar()
+    lionel.levantarla()
+    assert.equals(game.at(5,5), lionel.position())
+    assert.equals(game.at(5,5), pelota.position())
+    }
+
+}

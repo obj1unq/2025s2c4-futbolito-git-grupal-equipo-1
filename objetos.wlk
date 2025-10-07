@@ -16,6 +16,20 @@ object lionel {
 	method avanzar() {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
+
+	method levantarla(){
+		self.validarMessiEstaEnMismaPosicion()
+		pelota.subir()
+    	game.schedule(2000, {pelota.bajar()})
+		self.validarMessiEstaEnMismaPosicion()
+
+	}
+
+
+	method validarMessiEstaEnMismaPosicion(){
+		if(not (position.x() == pelota.position.x() && position.y() == pelota.position.y()))
+			self.error("NO ESTA MESSI CON LA PELOTA!!!!!!!!!!!!!!!!!")
+	}	
 	
 }
 
@@ -24,17 +38,11 @@ object pelota {
 	const property image="pelota.png"
 	var property position = game.at(5,5)	
 
-	method levantarla(){
-		position = game.at(position.x(), position.y() + 1)
-    	game.schedule(2000, {game.say(self, "¡Hola!")})
-		position = game.at(position.x(), position.y() - 1)
-		self.validarMessiEstaEnMismaPosicion()
-
+	method subir(){
+		self.position(game.at(position.x(), position.y() + 1))
+	}
+		method bajar(){
+		self.position( game.at(position.x(), position.y() - 1) )
 	}
 
-
-	method validarMessiEstaEnMismaPosicion(){
-		if(not (position.x() == lionel.position.x() && position.y() == lionel.position.y()))
-			self.error("NO ESTA MESSI CON LA PELOTA!!!!!!!!!!!!!!!!!")
-	}
 }
