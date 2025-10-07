@@ -1,9 +1,10 @@
-import wollok.game.*
 import objetos.*
+import wollok.game.*
 
-program futbolito{
+describe "test de taquito" {
 
-	game.addVisual(lionel)
+    method inicialize(){
+    game.addVisual(lionel)
 	game.addVisual(pelota)
 	game.cellSize(40)
 	game.width(15)
@@ -13,7 +14,16 @@ program futbolito{
 	keyboard.right().onPressDo({lionel.avanzar()})
 	keyboard.t().onPressDo({lionel.taquito()})
 
-	game.start()
+    
 
+    }
+  test "lionel hace un taquito" {
+    
+    self.inicialize()
+    lionel.avanzar()
+    lionel.avanzar()
+   // lionel.avanzar()
+    assert.equals(lionel.Position(game.at(5,5), game.at(5,5))
 
+  }
 }
