@@ -18,15 +18,17 @@ object lionel {
 	}
 	
 	method taquito(){
-			//self.validarTaquito()
-			pelota.retrocederDoslugares()
-		
+			
+			self.validarTaquito()
+			pelota.retrocederDoslugares()	
 			
 	}
 
 	method validarTaquito(){
-		if(not (pelota.position.x() == position.x() && pelota.position().y == position.y() )){
-			game.say(self, "La pelota no está conmigo!")
+		if(pelota.position() != position){
+			
+			//game.say(self, "La pelota no está !")			
+			self.error("Lionel no esta con la pelota!!")
 		}
 	}
 
