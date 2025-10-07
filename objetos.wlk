@@ -21,7 +21,6 @@ object lionel {
 		self.validarMessiEstaEnMismaPosicion()
 		pelota.subir()
     	game.schedule(2000, {pelota.bajar()})
-		self.validarMessiEstaEnMismaPosicion()
 
 	}
 
