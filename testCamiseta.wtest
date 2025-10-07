@@ -1,0 +1,30 @@
+import objetos.*
+import wollok.game.*
+
+describe "camiseta" {
+    method initialize(){
+		game.height(10)
+		game.width(15)
+
+		game.clear()
+
+	    game.addVisual(lionel)	
+    }
+
+    test "No cambia la camiseta porque no esta en borde"{
+            lionel.position(game.at(7,5))
+
+            assert.throwsExceptionWithMessage("No está en el borde, entonces no puede cambiar la camista"
+                                            , {lionel.validarCambiarCamiseta()}
+                                            )
+    }
+
+    test "Cambia la camise porque esta en el borde"{
+        lionel.position(game.at(0,5))
+        lionel.camiseta("titular")
+        lionel.validarCambiarCamiseta()
+
+        assert.equals("suplente", lionel.camiseta())
+    }
+
+}
