@@ -15,14 +15,14 @@ describe "camiseta" {
             lionel.position(game.at(7,5))
 
             assert.throwsExceptionWithMessage("No está en el borde, entonces no puede cambiar la camista"
-                                            , {lionel.validarCambiarCamiseta()}
+                                            , {lionel.cambiarCamisetaEnBorde()}
                                             )
     }
 
     test "Cambia la camise porque esta en el borde"{
         lionel.position(game.at(0,5))
         lionel.camiseta("titular")
-        lionel.validarCambiarCamiseta()
+        lionel.cambiarCamisetaEnBorde()
 
         assert.equals("suplente", lionel.camiseta())
     }

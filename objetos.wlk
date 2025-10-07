@@ -18,11 +18,14 @@ object lionel {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
 
+	method cambiarCamisetaEnBorde(){
+		self.validarCambiarCamiseta()
+		self.cambiarCamiseta()
+	}
+	
 	method validarCambiarCamiseta(){
 		if (not self.paradoEnBorde()){
 			self.error("No está en el borde, entonces no puede cambiar la camista")
-		} else {
-			self.cambiarCamiseta()
 		}
 	}
 
