@@ -16,6 +16,17 @@ object lionel {
 	method avanzar() {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
+
+	method irASacarLateral(){
+		self.validarQueNoTieneLaPelota()
+		position = pelota.position()
+	}
+
+	method validarQueNoTieneLaPelota(){
+		if(self.position() == pelota.position()){
+			self.error("No se fue la pelota!")
+		}
+	}
 	
 	method taquito(){
 			
