@@ -17,6 +17,23 @@ object lionel {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
 	
+	method patear() {
+		self.validarPuedePatear()
+		if((pelota.position().x() + 3) <= (game.width()-1)){
+			pelota.position(position.right(3))
+		}else{
+			pelota.position(game.at(game.width()-1, pelota.position().y()))
+		}
+	}
+
+	method puedePatear() = self.position().x() == pelota.position().x()
+	
+
+	method validarPuedePatear() {
+		if(not self.puedePatear()){
+			self.error("No hay pelota maquina")
+		}
+	}
 }
 
 
