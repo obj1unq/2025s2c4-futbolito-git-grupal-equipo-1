@@ -1,0 +1,27 @@
+import objetos.*
+import wollok.game.*
+
+describe "test de taquito" {
+
+    method inicialitie(){
+    game.addVisual(lionel)
+	game.addVisual(pelota)
+	game.cellSize(40)
+	game.width(15)
+	game.height(10)
+	
+
+    }
+  test "lionel esta con la pelota" {
+    
+   self.inicialitie()
+    lionel.avanzar()
+    lionel.avanzar()
+
+    assert.equals(game.at(5,5), lionel.position())
+    assert.equals(game.at(5,5), pelota.position())
+    assert.equals(lionel.position(), pelota.position())
+  
+
+  }
+}
